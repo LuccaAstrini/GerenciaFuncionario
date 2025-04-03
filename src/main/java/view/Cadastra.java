@@ -17,10 +17,9 @@ public class Cadastra extends javax.swing.JFrame {
     /**
      * Creates new form Cadastra
      */
-    private FuncionarioController controller;
+    private FuncionarioController controller = new FuncionarioController();
 
     public Cadastra() {
-        this.controller = new FuncionarioController();
         initComponents();
         // Atualiza a tabela ao iniciar
         controller.preencherTabela(tbLista);
