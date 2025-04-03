@@ -1,12 +1,12 @@
 package com.mycompany.gerenciafuncionario;
 
-import controller.FuncionarioController;
+import model.FuncionarioDAO;
 import view.Cadastra;
 
 public class GerenciaFuncionario {
 
     public static void main(String[] args) {
-        FuncionarioController controller = new FuncionarioController();
+        FuncionarioDAO controller = new FuncionarioDAO();
         Cadastra frame = new Cadastra();
         frame.setVisible(true);
     }

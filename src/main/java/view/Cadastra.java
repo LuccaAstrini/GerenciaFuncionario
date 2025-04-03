@@ -5,12 +5,8 @@
 package view;
 
 import controller.FuncionarioController;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.FuncionarioDAO;
+import model.Funcionario;
 
 /**
  *
@@ -242,12 +238,20 @@ public class Cadastra extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String cod = txtBuscaCodigo.getText();
-        controller.buscar(cod);
+        Funcionario f = controller.buscar(cod);
+
+        if (f != null) {
+            JOptionPane.showMessageDialog(null,"Código: " + f.getCodigo()
+                    + "\nNome: " + f.getNome() + "\nSalário: " + f.getSalario());
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Funcionário não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        FuncionarioController.salvarArquivo();
+        controller.salvarDados();
         System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
