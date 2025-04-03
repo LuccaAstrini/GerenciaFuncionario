@@ -31,7 +31,7 @@ public class FuncionarioController {
 
     Funcionario funcionario = new Funcionario(codigo, nome, salario);
     dao.adicionar(funcionario);
-    salvarTudoNoArquivo();
+    salvarArquivo();
     return true;
 }
 
@@ -62,10 +62,10 @@ public class FuncionarioController {
     }
 
     // Salva os funcionários no arquivo
-    public static void salvarTudoNoArquivo() {
+    public static void salvarArquivo() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(arq))) {
             for (Funcionario f : dao.recuperarTodos()) {
-                writer.println(f.getCodigo() + ";" + f.getNome() + ";" + f.getSalario());
+                writer.println(f.getCodigo() + "," + f.getNome() + "," + f.getSalario());
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar os dados!", "Erro", JOptionPane.ERROR_MESSAGE);

@@ -6,7 +6,7 @@ import view.Cadastra;
 public class GerenciaFuncionario {
 
     public static void main(String[] args) {
-        FuncionarioController.carregarArquivo();
+        FuncionarioController controller = new FuncionarioController();
         Cadastra frame = new Cadastra();
         frame.setVisible(true);
     }

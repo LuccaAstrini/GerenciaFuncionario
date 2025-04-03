@@ -24,7 +24,10 @@ public class Cadastra extends javax.swing.JFrame {
     private FuncionarioController controller;
 
     public Cadastra() {
+        this.controller = new FuncionarioController();
         initComponents();
+        // Atualiza a tabela ao iniciar
+        controller.preencherTabela(tbLista);
     }
 
     /**
@@ -152,6 +155,9 @@ public class Cadastra extends javax.swing.JFrame {
                 .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
+
+        tbLista.setBackground(new java.awt.Color(204, 204, 204));
         tbLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -236,15 +242,12 @@ public class Cadastra extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String cod = txtBuscaCodigo.getText();
-
-        FuncionarioController funcionario = new FuncionarioController();
-
-        funcionario.buscar(cod);
+        controller.buscar(cod);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        FuncionarioController.salvarTudoNoArquivo();
+        FuncionarioController.salvarArquivo();
         System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
